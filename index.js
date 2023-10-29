@@ -3,9 +3,15 @@ const {connection} = require('./db');
 const {userRoutes}=require('./routes/user.routes')
 const {noteRoutes} = require('./routes/note.routes')
 require("dotenv").config();
+
+const cors = require('cors')
+
 const app = express();
 
+
 app.use(express.json());
+
+app.use(cors());
 
 app.get("/",(req,res)=>{
     res.status(200).send({"msg":"this is home page "})
